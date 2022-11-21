@@ -1,8 +1,7 @@
 # %%
 # Imports
-import jax.numpy as jnp
+import jax.numpy as np
 from jax import jit
-import numpy as np
 import matplotlib.pyplot as plt
 # %%
 # Utils
@@ -193,8 +192,6 @@ def discharge_current():
 # %%
 # simualtion routines
 
-def ic(prob):
-    pass
 
 def bc(containers,precomputed_bc):
     pass
@@ -239,9 +236,28 @@ Theta = np.linspace(0.0,Lc,N)
 tspan = (0,1) # ms
 tsave = 0.001
 
+def ic(X):
+    pass
+
+def parameters(X):
+    pass
+
+def plot(x,data):
+    pass
+
+## Compute initial conditions and visualize them.
+ics = ic(Theta)
+nn0,n0,unn0,uni0,une0,Te0,Ti0 = ics
+plot(Theta,ics)
+
+## Compute parameters and visualize them.
+params = parameters(Theta)
+kI,nw,mu,K,W = params
+plot(Theta,params)
+
 constants = Constants()
 fields = Fields(Theta)
-params = Parameters(Theta,tspan)
+params = Parameters(params)
 
 prob = HETProblem(constants,fields,params,tspan,tsave)
 solution = solve(prob)
