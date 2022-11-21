@@ -193,20 +193,39 @@ def discharge_current():
 # %%
 # simualtion routines
 
-def integrate(prob,gradients,k):
+def ic(prob):
     pass
 
+def bc(containers,precomputed_bc):
+    pass
+
+def integrate(prob,gradients,k):
+    """
+    Integrate is written to not update the cells with the boundary conditions
+    """
+    pass
+
+def update(J,ue,ts):
+    pass 
+
 def solve(prob:HETProblem):
+    # Get parameters
     tdomain = prob.tdomain
+    
+    # Assign initial conditions
+    ic(prob)
+    bc(prob)
+
     for ts,t in enumerate(1,tdomain):
         f_nn = neutral_con_equation(prob,ts)
         f_niui = ion_electron_mom_equation()
         f_ni = ion_electron_con_equation()
         f_Te = electron_energy_equation()
+        gradients = [f_nn,f_niui,f_ni,f_Te]
+        integrate(prob,gradients,ts)
         J = discharge_current()
         ue_ = ue()
-        gradients = [f_nn,f_niui,f_ni,f_Te,J,ue_]
-        integrate(prob,gradients,ts)
+        update(J,ue_,ts)
 
 # %%
 # Script
