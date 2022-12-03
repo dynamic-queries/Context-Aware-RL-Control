@@ -1,37 +1,12 @@
 # %%
 # Imports
+from derivatives import *
+from utils import *
+
 import jax.numpy as np
 from jax import jit
 import matplotlib.pyplot as plt
-# %%
-# Utils
-def zero(A:np.ndarray):
-    return np.zeros(A.shape)
 
-# %%
-# Differential operators, Integral operators and their approximations
-
-def first_derivative(x):
-    n = x.shape[0]
-    dx = x[2]-x[1]
-    d = -1*np.ones(n)
-    d1 = np.ones(n-1)
-    A = np.diag(d)
-    A += np.diag(d1,k=1)
-    A /= dx
-    return A
-    
-def second_derivative(x):
-    n = x.shape[0]
-    dx = x[2]-x[1]
-    d = 2*np.ones(n)
-    d1 = -1*np.ones(n-1)
-    A = np.diag(d) + np.diag(d1,k=1) + np.diag(d1,k=-1)
-    A /= dx**2
-    return A
-
-def gaussian_quad(y,x):
-    pass
 
 # %%  
 # Types
@@ -55,15 +30,25 @@ class Fields:
         self.Te = zero(Theta) # Electron temperature
         self.Pe = zero(Theta)
         self.Pi = zero(Theta)
+        self.update_ic() # Update initial conditions
+
+    def update_ic(self):
+        pass
+
 
 class Parameters:
     # Simulation parameters
     def __init__(self,Theta,tspan):
         self.Br = zero(Theta)
+        self.mflow = 0.0
         self.kI = zero(Theta)
         self.nw = zero(Theta)
         self.K = zero(Theta)
         self.W = zero(Theta)
+        self.update()
+
+    def update(self):
+        pass
 
 
 class HETProblem:
@@ -190,7 +175,7 @@ def discharge_current():
 
 
 # %%
-# simualtion routines
+# Simualtion routines
 
 
 def bc(containers,precomputed_bc):
@@ -206,13 +191,10 @@ def update(J,ue,ts):
     pass 
 
 def solve(prob:HETProblem):
-    # Get parameters
+    # Get parameters.
     tdomain = prob.tdomain
-    
-    # Assign initial conditions
-    ic(prob)
-    bc(prob)
 
+    # Time step loop.
     for ts,t in enumerate(1,tdomain):
         f_nn = neutral_con_equation(prob,ts)
         f_niui = ion_electron_mom_equation()
@@ -223,41 +205,3 @@ def solve(prob:HETProblem):
         J = discharge_current()
         ue_ = ue()
         update(J,ue_,ts)
-
-# %%
-# Script
-
-## Define the space domain
-Lc = 2.5 # cm
-N = 1000 # no unit
-Theta = np.linspace(0.0,Lc,N)
-
-## Define the time domain
-tspan = (0,1) # ms
-tsave = 0.001
-
-def ic(X):
-    pass
-
-def parameters(X):
-    pass
-
-def plot(x,data):
-    pass
-
-## Compute initial conditions and visualize them.
-ics = ic(Theta)
-nn0,n0,unn0,uni0,une0,Te0,Ti0 = ics
-plot(Theta,ics)
-
-## Compute parameters and visualize them.
-params = parameters(Theta)
-kI,nw,mu,K,W = params
-plot(Theta,params)
-
-constants = Constants()
-fields = Fields(Theta)
-params = Parameters(params)
-
-prob = HETProblem(constants,fields,params,tspan,tsave)
-solution = solve(prob)
