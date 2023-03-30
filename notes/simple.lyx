@@ -1,0 +1,334 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref false
+\papersize a2paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 2cm
+\headsep 2cm
+\footskip 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Simple ODE model
+\begin_inset Newline newline
+\end_inset
+
+——————————————————————
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial\rho_{n}}{\partial t}+\frac{\left(\rho_{n}-\rho_{inj}\right)u_{n}}{L_{ch}}=-\rho_{e}\rho_{n}K_{iz}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+——————————————————————
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial\rho_{i}}{\partial t}+\frac{\rho_{i}u_{i}}{L_{ch}}+\frac{2\rho_{i}u_{B}}{\Delta r}=\rho_{e}\rho_{n}K_{iz}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+——————————————————————
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial\left(m_{i}\rho_{i}u_{i}\right)}{\partial t}+\frac{m_{i}\rho_{i}u_{i}^{2}}{L_{ch}}+\frac{2m_{i}\rho_{i}u_{B}u_{i}}{\Delta r}=e\rho_{i}E<=>\frac{\partial m_{i}\rho_{i}}{\partial t}+\frac{\partial m_{i}u_{i}}{\partial t}+\frac{m_{i}\rho_{i}u_{i}^{2}}{L_{ch}}+\frac{2m_{i}\rho_{i}u_{B}u_{i}}{\Delta r}=e\rho_{i}E$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $<=>\frac{\partial m_{i}u_{i}}{\partial t}=e\rho_{i}E-\frac{m_{i}\rho_{i}u_{i}^{2}}{L_{ch}}-\frac{2m_{i}\rho_{i}u_{B}u_{i}}{\Delta r}-\frac{\partial m_{i}\rho_{i}}{\partial t}=e\rho_{i}E-\frac{m_{i}\rho_{i}u_{i}^{2}}{L_{ch}}-\frac{2m_{i}\rho_{i}u_{B}u_{i}}{\Delta r}-m_{i}\left[\rho_{e}\rho_{n}K_{iz}-\frac{2\rho_{i}u_{B}}{\Delta r}-\frac{\rho_{i}u_{i}}{L_{ch}}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial m_{i}u_{i}}{\partial t}=e\rho_{i}E-\frac{m_{i}\rho_{i}u_{i}^{2}}{L_{ch}}-\frac{2m_{i}\rho_{i}u_{B}u_{i}}{\Delta r}-m_{i}\rho_{e}\rho_{n}K_{iz}+m_{i}\frac{2\rho_{i}u_{B}}{\Delta r}+m_{i}\frac{\rho_{i}u_{i}}{L_{ch}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial m_{i}u_{i}}{\partial t}=e\rho_{i}\frac{\phi_{d}}{L}-\frac{m_{i}\rho_{i}u_{i}^{2}}{L_{ch}}-\frac{2m_{i}\rho_{i}\sqrt{\frac{eT_{e}}{m_{i}}}u_{i}}{\Delta r}-m_{i}\rho\rho_{n}K_{iz}+m_{i}\frac{2\rho_{i}\sqrt{\frac{eT_{e}}{m_{i}}}}{\Delta r}+m_{i}\frac{\rho_{i}u_{i}}{L_{ch}}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+——————————————————————
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial t}\left(\frac{3}{2}\rho_{e}T_{e}\right)+\frac{5}{2}\frac{\rho_{e}u_{e}T_{e}}{L}=-\rho_{e}u_{e}E-\rho_{e}\nu_{w}\epsilon_{w}-\rho_{e}\rho_{n}K_{iz}\epsilon_{iz}\chi$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{3}{2}$
+\end_inset
+
+
+\begin_inset Formula $\left[\frac{\partial\rho_{i}}{\partial t}+\frac{\partial T_{e}}{\partial t}\right]+\frac{\partial}{\partial t}\left(\frac{3}{2}\rho_{e}T_{e}\right)+\frac{5}{2}\frac{\rho_{e}u_{e}T_{e}}{L}=-\rho_{e}u_{e}E-\rho_{e}\nu_{w}\epsilon_{w}-\rho_{e}\rho_{n}K_{iz}\epsilon_{iz}\chi$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{3}{2}\left[\rho_{e}\rho_{n}K_{iz}-\frac{2\rho_{i}u_{B}}{\Delta r}-\frac{\rho_{i}u_{i}}{L_{ch}}\right]+\frac{3}{2}\left[\frac{\partial T_{e}}{\partial t}\right]=-\rho_{e}u_{e}E-\rho_{e}\nu_{w}\epsilon_{w}-\rho_{e}\rho_{n}K_{iz}\epsilon_{iz}\chi-\frac{\partial}{\partial t}\left(\frac{3}{2}\rho_{e}T_{e}\right)-\frac{5}{2}\frac{\rho_{e}u_{e}T_{e}}{L}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{3}{2}\left[\frac{\partial T_{e}}{\partial t}\right]=-\rho_{e}u_{e}E-\rho_{e}\nu_{w}\epsilon_{w}-\rho_{e}\rho_{n}K_{iz}\epsilon_{iz}\chi-\frac{5}{2}\frac{\rho_{e}u_{e}T_{e}}{L}-\frac{3}{2}\left[\rho_{e}\rho_{n}K_{iz}-\frac{2\rho_{i}u_{B}}{\Delta r}-\frac{\rho_{i}u_{i}}{L_{ch}}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+——————————————————————
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider the output 
+\begin_inset Formula $I=Ae\rho_{i}\left(u_{i}-u_{e}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The state vector is defined as one that contains indendent quantities.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S=\left[\begin{array}{c}
+\rho_{n}\\
+\rho_{i}\\
+u_{i}\\
+T_{e}
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With this in mind, we can now linearize the model with its Jacobian
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d}{dt}\left[\begin{array}{cccc}
+1\\
+ & 1\\
+ &  & 1\\
+ &  &  & 1
+\end{array}\right]\left[\begin{array}{c}
+\rho_{n}\\
+\rho_{e}\\
+u_{i}\\
+T_{e}
+\end{array}\right]=\left[\begin{array}{c}
+-\rho_{e}\rho_{n}K_{iz}-\frac{\left(\rho_{n}-\rho_{inj}\right)u_{n}}{L_{ch}}\\
+\rho_{e}\rho_{n}K_{iz}-\frac{\rho_{e}u_{i}}{L_{ch}}-\frac{2\rho_{e}\sqrt{\frac{eT_{e}}{m_{i}}}}{\Delta r}\\
+e\rho_{e}\frac{\phi_{d}}{m_{i}L}-\frac{\rho_{e}u_{i}^{2}}{L_{ch}}-\frac{2\rho_{e}\sqrt{\frac{eT_{e}}{m_{i}}}u_{i}}{\Delta r}-\rho_{e}\rho_{n}K_{iz}+\frac{2\rho_{e}\sqrt{\frac{eT_{e}}{m_{i}}}}{\Delta r}+\frac{\rho_{e}u_{i}}{L_{ch}}\\
+-\frac{2}{3}\rho_{e}u_{e}\frac{\phi_{d}}{L}-\frac{2}{3}\rho_{e}\nu_{w}\epsilon_{w}-\frac{2}{3}\rho_{e}\rho_{n}K_{iz}\epsilon_{iz}\chi-\frac{5}{3}\frac{\rho_{e}u_{e}T_{e}}{L}-\rho_{e}\rho_{n}K_{iz}+\frac{\rho_{e}\sqrt{\frac{eT_{e}}{m_{i}}}}{\Delta r}+\frac{\rho_{e}u_{i}}{L_{ch}}
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is also known that.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $u_{e}=u_{e}(T_{e})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $K_{iz}=K_{iz}(T_{e})$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Linearizing the right hand side, one gets:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d}{dt}$
+\end_inset
+
+
+\begin_inset Formula $\left[\begin{array}{c}
+\rho_{n}\\
+\rho_{e}\\
+u_{i}\\
+T_{e}
+\end{array}\right]=\left[\begin{array}{cccc}
+-\rho_{e}K_{iz}-\frac{u_{n}}{L_{ch}} & -\rho_{n}K_{iz} & 0 & -\rho_{e}\rho_{n}[\partial_{T_{e}}K_{iz}]\\
+\rho_{e}K_{iz} & \rho_{n}K_{iz}-\frac{u_{i}}{L_{ch}}-\frac{2\sqrt{\frac{eT_{e}}{m_{i}}}}{\Delta r} & -\frac{u_{i}}{L_{ch}} & \rho_{e}\rho_{n}[\partial_{T_{e}}K_{iz}]-\frac{e\rho_{e}u_{i}}{\sqrt{\frac{eT_{e}}{m_{i}}}m_{i}\Delta r}\\
+-\rho_{e}\rho_{n} & e\frac{\phi_{d}}{m_{i}L}-\frac{u_{i}^{2}}{L_{ch}}-\frac{2\sqrt{\frac{eT_{e}}{m_{i}}}u_{i}}{\Delta r}-\rho_{n}K_{iz}+\frac{2\sqrt{\frac{eT_{e}}{m_{i}}}}{\Delta r}+\frac{u_{i}}{L_{ch}} & -\frac{2\rho_{e}u_{i}}{L_{ch}}-\frac{2\rho_{e}\sqrt{\frac{eT_{e}}{m_{i}}}}{\Delta r}+\frac{\rho_{e}}{L_{ch}}\quad & (1-u_{i})\frac{e\rho_{e}}{\sqrt{\frac{eT_{e}}{m_{i}}}m_{i}\Delta r}-\rho_{e}\rho_{n}[\partial_{T_{e}}K_{iz}]\\
+-\frac{2}{3}\rho_{e}K_{iz}\epsilon_{iz}\chi-\rho_{e}K_{iz}\quad & -\frac{2}{3}u_{e}\frac{\phi_{d}}{L}-\frac{2}{3}\nu_{w}\epsilon_{w}-\frac{2}{3}\rho_{n}K_{iz}\epsilon_{iz}\chi-\frac{5}{3}\frac{u_{e}T_{e}}{L}-\rho_{n}K_{iz}+\frac{u_{B}}{\Delta r}+\frac{u_{i}}{L_{ch}}\quad & \frac{\rho_{e}}{L_{ch}} & -\frac{2}{3}\rho_{e}\frac{\phi_{d}}{L}[\partial_{T_{e}}u_{e}]-\frac{2}{3}\rho_{e}[\partial_{T_{e}}(\nu_{w}\epsilon_{w})]-\frac{2}{3}\rho_{e}\rho_{n}\chi[\partial_{T_{e}}(K_{iz}\epsilon_{iz})]-\frac{5}{3}\frac{\rho_{e}u_{e}}{L}-\rho_{e}\rho_{n}[\partial_{T_{e}}K_{iz}]+\frac{e\rho_{e}}{2m_{i}\Delta r\sqrt{\frac{eT_{e}}{m_{i}}}}
+\end{array}\right]\left[\begin{array}{c}
+\rho_{n}\\
+\rho_{e}\\
+u_{i}\\
+T_{e}
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Jacobian in this case is not sparse.
+ This result should give a nice way to verify the AD computations that one
+ obtains.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Unfortunately, this model is not really useful as it has been found that
+ the unstable oscillations of the Hall thruster do not appear upon further
+ analyzing this model.
+ Instead we now adpot the one dimnensional model of Hall thruster.
+ This model is governed by a partial differential equation.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
